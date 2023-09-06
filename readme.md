@@ -1,4 +1,4 @@
-Dependeencias
+Dependencias
 npm i express bcryptjs cors dotenv jsonwebtoken mongoose morgan helmet
 
 Dependencias para desarrollo
