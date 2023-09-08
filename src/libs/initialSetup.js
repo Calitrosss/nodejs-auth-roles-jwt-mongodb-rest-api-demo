@@ -5,7 +5,7 @@ export const createRoles = async () => {
   try {
     // Cuenta la cantidad de roles existente
     const count = await Role.estimatedDocumentCount();
-    console.log(count);
+
     if (count > 0) return;
 
     // Para ejecutar las 3 promesas al mismo tiempo
