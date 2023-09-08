@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
   {
@@ -27,4 +28,15 @@ const userSchema = new Schema(
   }
 );
 
-export default userSchema;
+// El nombre encryptPass es definido manualmente el que uno desee usar
+userSchema.statics.encryptPass = async (password) => {
+  const salt = await bcrypt.genSalt(10);
+  return await bcrypt.hash(password, salt);
+};
+
+// El nombre validatePass es definido manualmente el que uno desee usar
+userSchema.statics.validatePass = async (password, receivedPassword) => {
+  return await bcrypt.compare(password, receivedPassword);
+};
+
+export default model("User", userSchema);

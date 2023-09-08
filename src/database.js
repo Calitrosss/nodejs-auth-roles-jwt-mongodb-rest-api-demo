@@ -4,6 +4,8 @@ mongoose
   .connect("mongodb://127.0.0.1:27017/companydb", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    // useFindAndModify: true,
+    // useCreateIndex: true,
   })
   .then((db) => console.log("Base de datos conectada"))
   .catch((error) => console.error(error));
